@@ -1,0 +1,63 @@
+# reports_generator_job:
+#  class: ReportsGeneratorJob
+#  interval: ['120s', first_in: '50s']
+assets_info_fetcher_job:
+  class: AssetsInfoFetcherJob
+  interval: ["3600s", first_in: "3600s"]
+alarm_watcher_job:
+  class: AlarmWatcherJob
+  interval: ["3600s", first_in: "30s"]
+market_infos_fetcher_job:
+  class: MarketInfosFetcherJob
+  interval: ["7200s", first_in: "3s"]
+# assets_info_fetcher_job:
+#   class: AssetsInfoFetcherJob
+#   interval: ["120s", first_in: "5s"]
+# alarm_watcher_job:
+#   class: AlarmWatcherJob
+#   interval: ['120s', first_in: '30s']
+
+# tickers_launcher_job:
+#   class: TickersLauncherJob
+#   interval: ['150s', first_in: '10s']
+
+# bleutrade_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['20s', first_in: '1s']
+#   args: 'bleutrade'
+# bittrex_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['20s', first_in: '1s']
+#   args: 'bittrex'
+# coinexchange_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['120s', first_in: '30s']
+#   args: 'coinexchange'
+# cryptopia_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['120s', first_in: '40s']
+#   args: 'cryptopia'
+# etherdelta_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['220s', first_in: '5s']
+#   args: 'etherdelta'
+# exmo_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['120s', first_in: '60s']
+#   args: 'exmo'
+# gate_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['120s', first_in: '70s']
+#   args: 'gate'
+# hibtc_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['120s', first_in: '80s']
+#   args: 'hibtc'
+# kucoin_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['20s', first_in: '10s']
+#   args: 'kucoin'
+# poloniex_tickers_fetcher_job:
+#   class: TickersFetcherJob
+#   interval: ['20s', first_in: '20s']
+#   args: 'poloniex'

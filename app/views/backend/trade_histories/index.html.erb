@@ -1,0 +1,30 @@
+<h1 class="text-center">
+  <%= @pair.exchange.name + ' - ' + @pair.name %>
+</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Timestamp</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trade_histories.each do |trade_history| %>
+      <tr>
+        <th scope="row"><%= trade_history.id %></th>
+        <td><%= trade_history.order_type %></td>
+        <td><%= trade_history.amount %></td>
+        <td><%= trade_history.price %></td>
+        <td><%= trade_history.total %></td>
+        <td><%= trade_history.event_timestamp %></td>
+        <td><%= link_to 'Details', backend_market_pair_trade_history_path(@pair.market, @pair, trade_history), class: 'btn btn-info', data: { turbolinks: false } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

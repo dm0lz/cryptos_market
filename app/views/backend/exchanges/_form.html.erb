@@ -1,0 +1,18 @@
+<%= render 'shared/errors' %>
+<h2 class='text-center'><%= @exchange.name %></h2>
+<br/>
+<p>convention : BASE_CURRENCY_PARAM / QUOTE_CURRENCY_PARAM</p>
+<hr/>
+<%= form_for [:backend, @exchange] do |f| %>
+
+  <%= f.label :get_user_pair_path %>
+  <%= f.text_field :get_user_pair_path, style: "", class: 'form-control', placeholder: 'ex : https://bittrex.com/Market/Index?MarketName=BTC-STEEM' %>
+  <hr/>
+  <%= f.label :country %>
+  <%= f.text_field :country, style: "", class: 'form-control', placeholder: 'ex : France' %>
+  <hr/>
+  <%= f.submit 'submit', class: 'btn btn-success btn-block' %>
+  <br/>
+  <%= link_to "Exchanges List", backend_exchanges_path, class: 'btn btn-info', data: { turbolinks: false } %>
+
+<% end %>

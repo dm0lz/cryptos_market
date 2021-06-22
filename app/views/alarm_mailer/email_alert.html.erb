@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>An Alarm was triggered on <%= @alarm.asset_symbol %></h1>
+    <p>
+      Current price of <%= @alarm.asset_symbol %> is : <%= @alarm.asset_info.price_usd %> USD
+    </p>
+    <% if @alarm.min_limit %>
+      <p>
+        Min Limit Alarm was set to : <%= @alarm.min_limit %> USD
+      </p>
+    <% end %>
+    <% if @alarm.max_limit %>
+      <p>
+        Max Limit Alarm was set to : <%= @alarm.max_limit %> USD
+      </p>
+    <% end %>
+    <p>Alarm has now been desactivated.</p>
+    <p>
+      <%= "simplemarketcap.com/" + @alarm.asset_symbol %>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

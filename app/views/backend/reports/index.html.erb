@@ -1,0 +1,94 @@
+<h2 class="text-center">Report for Market : <%= @market.name %></h2>
+
+<%= link_to "Back to Market List", backend_markets_path, class: 'btn btn-success', data: { turbolinks: false } %>
+<%= link_to "Market Details", backend_market_path(@market), class: 'btn btn-success float-right', data: { turbolinks: false } %>
+
+<h3 class="text-center">Last Tickers</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Exchange</th>
+      <th>Ask</th>
+      <th>Bid</th>
+      <th>Last</th>
+      <th>spread</th>
+      <th>unwatch pair</th>
+      <th>Pair Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.first.tickers.each do |ticker| %>
+      <tr>
+        <th scope="row">#</th>
+        <td><%= ticker['exchange_name'] %></td>
+        <td><%= ticker['ask'] %></td>
+        <td><%= ticker['bid'] %></td>
+        <td><%= ticker['last'] %></td>
+        <td><%= ticker['spread'] %></td>
+        <% if Pair.find(ticker['pair_id']).is_watched %>
+          <td><%= link_to "Unwatch pair #{ticker['pair_id']}", unwatch_backend_market_pair_path(@market.id, ticker['pair_id']), method: :patch, class: "btn btn-danger", data: { confirm: 'Are you sure ?' } %></td>
+        <% else %>
+          <td><%= "pair #{ticker['pair_id']} Unwatched" %></td>
+        <% end %>
+        <td><%= link_to "Go to Pair #{ticker['pair_id']}", backend_market_pair_path(@market.id, ticker['pair_id']), class: "btn btn-info", data: { turbolinks: false } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<section class="jumbotron">
+    <h4 class="text-center"><%= @reports.first.pairs.first['exchange'] %> - <%= @reports.first.pairs.last['exchange'] %> :</h4>
+    <p class="text-center">
+      ( (<%= @reports.first.pairs.last['bid'] %> - <%= @reports.first.pairs.first['ask'] %>) / (<%= @reports.first.pairs.last['bid'] %> + <%= @reports.first.pairs.first['ask'] %>) ) * 100
+    </p>
+    <p class="text-center"> = </p>
+    <p class="text-center">
+      <%= ( (@reports.first.pairs.last['bid'].to_f - @reports.first.pairs.first['ask'].to_f) / (@reports.first.pairs.last['bid'].to_f + @reports.first.pairs.first['ask'].to_f) ) * 100 %> %
+    </p>
+    <p class="text-center">
+      Last Price difference : <%= @reports.first.market.price_difference %> %
+    </p>
+    <p class="text-center">
+      Spread : <%= @reports.first.spread %> %
+    </p>
+</section>
+
+
+<%= link_to "Show All Market Pairs", backend_market_pairs_path(@market), class: 'btn btn-primary btn-lg btn-block', data: { turbolinks: false } %>
+
+<hr>
+
+<h3 class="text-center">Last 50 reports</h3>
+<table class="table report_market_<%= @market.id %> table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Market</th>
+      <th>Price Difference</th>
+      <th>Is Opportunity</th>
+      <th>Pair 1</th>
+      <th>Pair 2</th>
+      <th>More Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |r| %>
+      <tr>
+        <th scope="row"><%= r.id %></th>
+        <td><%= r.market.name %></td>
+        <td><%= r.price_difference %></td>
+        <td><%= r.is_opportunity %></td>
+        <td><%= r.pairs.first %></td>
+        <td><%= r.pairs.last %></td>
+        <td><%= link_to "Details", backend_market_report_path(r.market, r), class: 'btn btn-success', data: { turbolinks: false } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+  document.addEventListener("turbolinks:load", function(){
+    market_subscription("<%= @market.id %>")
+  })
+<% end %>

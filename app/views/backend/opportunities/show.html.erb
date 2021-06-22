@@ -1,0 +1,27 @@
+<%= link_to "Market List", backend_markets_path, class: 'btn btn-success', data: { turbolinks: false } %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Base Currency</th>
+      <th>Quote Currency</th>
+      <th>Exchange Nb</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @market.id %></th>
+      <td><%= @market.name %></td>
+      <td><%= @market.base_currency %></td>
+      <td><%= @market.quote_currency %></td>
+      <td><%= @market.pairs.count %></td>
+    </tr>
+  </tbody>
+</table>
+
+<section class="text-center">
+  <%= link_to 'Show Pairs', backend_market_pairs_path(@market), class: 'btn btn-info', data: { turbolinks: false } %>
+  <%= link_to "Reports", backend_market_reports_path(@market), class: 'btn btn-success', data: { turbolinks: false } %>
+</section>

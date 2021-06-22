@@ -1,0 +1,43 @@
+
+.portfolio-chart-row{
+  height: 423px;
+}
+
+.recharts-wrapper{
+  top: -7em;
+  left: -6em;
+  .recharts-surface{
+    overflow: visible;
+  }
+}
+
+
+.candle-chart-show-portfolio{
+  .react-stockcharts-tooltip{
+    fill: white;
+  }
+}
+
+.recharts-legend-wrapper{
+  ul{
+    list-style-type: none;
+  }
+  //right: -25px !important;
+}
+
+.portfolio-asset-row.active{
+  color: black;
+  font-weight: 400;
+}
+
+// .Select-input{
+//   input{
+//     width: 100% !important;
+//   }
+// }
+
+.modal-content{
+  color: #4a3f3f;
+  .modal-body{
+  }
+}

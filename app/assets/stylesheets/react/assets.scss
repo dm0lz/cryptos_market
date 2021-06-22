@@ -1,0 +1,133 @@
+
+.global-market-infos{
+  font-size: 0.7em;
+  margin-top: 12px;
+}
+@media only screen and (min-width:768px) and (max-width:1252px){
+  .global-market-infos{
+    display: none;
+  }
+}
+
+@media (max-width: 995px){
+  .search-area{
+    margin-right: -115px;
+  }
+}
+@media only screen and (min-width:768px) and (max-width:1089px){
+  .search-area{
+    display: none;
+  }
+}
+.assets-under-header{
+    margin-bottom: -20px;
+    color: #7ee435;
+}
+.global-market-info-line-1{
+  display: block;
+
+}
+.active-sorting{
+  color: #ffa51e;
+}
+.no-result{
+  margin-top: 50px;
+  color: grey;
+}
+//
+// .global-market-info-line-2{
+//   display: block;
+//   position: relative;
+//   top: 1em;
+// }
+
+.table-hover>tbody>tr:hover {
+  color: black;
+  font-weight: 400;
+  .asset-row-price{
+    color: black;
+    font-weight: 400;
+  }
+}
+
+.asset-symbol-title{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.asset-row-price{
+  //color: #ffa31f;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  font-size: 1.1em;
+  color: #e6dc31;
+}
+
+.asset_row {
+  td {
+    padding: 5px !important;
+    height: 90px;
+
+    // span{
+    //   line-height: 70px;
+    // }
+  }
+}
+.line-chart-show{
+  //background: #f3f3f3;
+  //margin-left: 17px;
+  //margin-right: 17px;
+}
+.asset_show_header_right{
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.asset_show_header_left{
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.active_scale{
+  color: orange;
+}
+
+.scale_link{
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.table-condensed>tbody>tr>td{
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.candle-chart-show{
+  .react-stockcharts-tooltip{
+    fill: white;
+  }
+}
+.area-chart-show{
+  .react-stockcharts-tooltip{
+    fill: white;
+  }
+}
+.line-chart-show{
+  .react-stockcharts-tooltip{
+    fill: white;
+  }
+}
+.loader-row {
+  position: relative;
+  //top: 6.5em;
+  left: calc(50% - 4em);
+  width: 2em;
+  height: 2em;
+  border: 0.4em solid #ff7f0e;
+  border-left: 0.4em solid #e6e6e4;
+  border-radius: 50%;
+  animation: load8 1.1s infinite linear;
+}

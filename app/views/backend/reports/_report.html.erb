@@ -1,0 +1,9 @@
+<tr>
+  <th scope="row"><%= report.id %></th>
+  <td><%= report.market.name %></td>
+  <td><%= report.price_difference %></td>
+  <td><%= report.is_opportunity %></td>
+  <td><%= report.pairs.first %></td>
+  <td><%= report.pairs.last %></td>
+  <td><%= link_to "Details", backend_market_report_path(report.market, report), class: 'btn btn-success', data: { turbolinks: false } %></td>
+</tr>

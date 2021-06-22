@@ -1,0 +1,43 @@
+<section class="opportunities_table">
+
+  <h1 class="text-center"><%= markets.count %> Opportunities</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Base Currency</th>
+        <th>Quote Currency</th>
+        <th>Supported Exchanges</th>
+        <th>Last Price Difference (%)</th>
+        <th>Spread (%)</th>
+        <th>Has Opportunity</th>
+        <th>Is Watched</th>
+        <th>Details</th>
+        <th>Reports</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% markets.each do |m| %>
+        <tr class="<%= m.has_opportunity ? 'green-row' : 'red-row' %>">
+          <th scope="row"><%= m.id %></th>
+          <td><%= m.name %></td>
+          <td><%= m.base_currency %></td>
+          <td><%= m.quote_currency %></td>
+          <td><%= m.pairs.map{|l| l.exchange.name.upcase }.join(', ') %></td>
+          <% if m.reports.empty? %>
+            <td>No Report Yet</td>
+          <% else %>
+            <td><%= m.price_difference.round(2) %></td>
+          <% end %>
+          <td><%= m.spread.round(2) %></td>
+          <td><%= m.has_opportunity %></td>
+          <td><%= m.is_watched %></td>
+          <td><%= link_to "Details", backend_market_path(m), class: 'btn btn-info', data: { turbolinks: false } %></td>
+          <td><%= link_to "Reports", backend_market_reports_path(m), class: 'btn btn-warning', data: { turbolinks: false } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</section>

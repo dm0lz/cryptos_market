@@ -1,0 +1,20 @@
+<%#= binding.pry %>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<%= form_for [:backend, @pair.market, @pair] do |f| %>
+
+  <%= f.label :market_id %>
+  <%= f.select :market_id, Market.of_interest.order(name: :asc).map{|m| ["#{m.name} (#{m.id})", m.id]} %>
+
+  <%= f.submit 'submit' %>
+
+  <%= link_to "Listing", backend_exchanges_path %>
+
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#pair_market_id').select2();
+  });
+</script>

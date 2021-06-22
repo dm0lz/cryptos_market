@@ -1,0 +1,6 @@
+<%= link_to 'edit', edit_backend_exchange_path(@exchange), class: 'btn btn-info' %>
+<ul>
+  <% @exchange.attributes.each do |key, value| %>
+    <li><%= key %> : <%= value %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,24 @@
+{
+  "editor.formatOnSave": true,
+  // "[ruby]": {
+  //   "editor.formatOnSave": true
+  // },
+  //"rufo.exe": "/Users/olivier/.rvm/gems/ruby-2.5.3/wrappers/rufo",
+  //"rufo.useBundler": false,
+  "ruby.format": "rubocop",
+  "editor.formatOnSaveTimeout": 1500,
+  "ruby.lint": {
+    // "reek": true
+    // "rubocop": true,
+    "ruby": true, //Runs ruby -wc
+    // "fasterer": true
+    // "debride": true,
+    "ruby-lint": true
+  },
+  "ruby.lintDebounceTime": 500,
+  "ruby.intellisense": "rubyLocate",
+  "ruby.locate": {
+    "include": "**/*.rb",
+    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}"
+  }
+}

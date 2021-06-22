@@ -1,0 +1,32 @@
+
+<h3 class="text-center"><%= @pairs.count %> asset pairs trading at <%= @exchange.name %></h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Base Currency</th>
+      <th>Quote Currency</th>
+      <th>Min Trade Size</th>
+      <th>Exchange</th>
+      <th>Is Watched</th>
+      <th>Original Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pairs.each do |pair| %>
+      <tr>
+        <th scope="row"><%= pair.id %></th>
+        <td><%= pair.name %></td>
+        <td><%= pair.base_currency %></td>
+        <td><%= pair.quote_currency %></td>
+        <td><%= pair.min_trade_size %></td>
+        <td><%= pair.exchange.name %></td>
+        <td><%= pair.is_watched %></td>
+        <td><%= pair.original_payload %></td>
+        <td><%= link_to "Details", backend_market_pair_path(pair.market, pair), class: 'btn btn-success', data: { turbolinks: false } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

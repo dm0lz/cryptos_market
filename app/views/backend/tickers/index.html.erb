@@ -1,0 +1,36 @@
+<h1 class="text-center">
+  <%= @pair.exchange.name + ' - ' + @pair.name %>
+</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Bid</th>
+      <th>Ask</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>timestamp</th>
+      <th>volume</th>
+      <th>Base volume</th>
+      <th>Quote volume</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickers.each do |ticker| %>
+      <tr>
+        <th scope="row"><%= ticker.id %></th>
+        <td><%= ticker.bid %></td>
+        <td><%= ticker.ask %></td>
+        <td><%= ticker.high %></td>
+        <td><%= ticker.low %></td>
+        <td><%= ticker.timestamp %></td>
+        <td><%= ticker.volume %></td>
+        <td><%= ticker.base_volume %></td>
+        <td><%= ticker.quote_volume %></td>
+        <td><%= link_to 'Details', backend_market_pair_ticker_path(@pair.market, @pair, ticker), class: 'btn btn-info', data: { turbolinks: false } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

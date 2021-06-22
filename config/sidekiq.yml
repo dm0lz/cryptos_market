@@ -1,0 +1,21 @@
+:concurrency: 5
+:queues:
+  # - reports_generator_job
+  # - ticker_fetcher_job
+  # - tickers_fetcher_job
+  - assets_info_fetcher_job
+  - alarm_watcher_job
+  - alarm_mailer_job
+  - contact_mailer_job
+  - market_infos_fetcher_job
+  # - tickers_launcher_job
+# :schedule:
+#   # reports_generator_job:
+#   #  class: ReportsGeneratorJob
+#   #  every: ['120s', first_in: '60s']
+#   assets_info_fetcher_job:
+#     class: AssetsInfoFetcherJob
+#     every: ['120s', first_in: '5s']
+#   alarm_watcher_job:
+#     class: AlarmWatcherJob
+#     every: ['120s', first_in: '30s']

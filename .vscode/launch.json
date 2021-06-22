@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start Rails server",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/bin/rails",
+      "args": ["server", "-p", "3000"]
+    },
+    {
+      "name": "Debug Rails server",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "useBundler": true,
+      "pathToBundler": "/Users/olivier/.rvm/gems/ruby-2.5.3/bin/bundle",
+      "pathToRDebugIDE": "/Users/olivier/.rvm/gems/ruby-2.5.3/gems/ruby-debug-ide-0.6.1",
+      "program": "${workspaceRoot}/bin/rails",
+      "args": ["server", "-p", "3000"]
+    }
+  ]
+}

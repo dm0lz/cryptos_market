@@ -1,0 +1,24 @@
+<h1 class="text-center">
+  <%= @pair.exchange.name + ' - ' + @pair.name %>
+</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Is Frozen</th>
+      <th>Pair Id</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_books.each do |order_book| %>
+      <tr>
+        <th scope="row"><%= order_book.id %></th>
+        <td><%= order_book.is_frozen || 'false' %></td>
+        <td><%= order_book.pair_id %></td>
+        <td><%= link_to 'Details', backend_market_pair_order_book_path(@pair.market, @pair, order_book), class: 'btn btn-info', data: { turbolinks: false } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

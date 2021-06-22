@@ -1,0 +1,33 @@
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Base Currency</th>
+      <th>Quote Currency</th>
+      <th>Min Trade Size</th>
+      <th>Exchange</th>
+      <th>Original Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @pair.id %></th>
+      <td><%= @pair.name %></td>
+      <td><%= @pair.base_currency %></td>
+      <td><%= @pair.quote_currency %></td>
+      <td><%= @pair.min_trade_size %></td>
+      <td><%= @pair.exchange.name %></td>
+      <td><%= @pair.original_payload %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<section class="text-center">
+  <%= link_to 'Show Tickers', backend_market_pair_tickers_path(@pair.market, @pair), class: 'btn btn-info', data: { turbolinks: false } %>
+  <%= link_to 'Show Order Books', backend_market_pair_order_books_path(@pair.market, @pair), class: 'btn btn-info', data: { turbolinks: false } %>
+  <%= link_to 'Show Trade History', backend_market_pair_trade_histories_path(@pair.market, @pair), class: 'btn btn-info', data: { turbolinks: false } %>
+</section>

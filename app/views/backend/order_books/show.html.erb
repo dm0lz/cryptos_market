@@ -1,0 +1,16 @@
+
+
+<ul>
+  <% @order_book.attributes.each do |key, value| %>
+    <% if key == "asks" || key == "bids" %>
+      <h3><%= key %> :</h3>
+      <ul>
+        <% value.each do |val| %>
+          <li><%= val %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <li><%= key %> : <%= value %></li>
+    <% end %>
+  <% end %>
+</ul>
